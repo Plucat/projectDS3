@@ -1,6 +1,6 @@
 ﻿namespace Pelicula
 {
-    partial class Form1
+    partial class VentanaPrincipal
     {
         /// <summary>
         ///  Required designer variable.
