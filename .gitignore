@@ -480,3 +480,6 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+/Pelicula/DbHelper.cs
+/Pelicula/VentanaPelicula.Designer.cs
+/Pelicula/VentanaPelicula.resx
