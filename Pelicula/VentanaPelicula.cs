@@ -13,6 +13,8 @@ namespace Pelicula
 {
     public partial class VentanaPelicula : Form
     {
+
+        private bool editar = false;
         public VentanaPelicula()
         {
             InitializeComponent();
@@ -45,6 +47,8 @@ namespace Pelicula
             UIHelper.LlenarCombo(cbGenero, "Genero", "IDGenero", "NombreGenero");
             UIHelper.LlenarCombo(cbClasificacion, "Clasificacion", "IDClasificacion", "Clave");
 
+            editar = false;
+
         }
 
         private void tsbSalir_Click(object sender, EventArgs e)
@@ -55,7 +59,11 @@ namespace Pelicula
         private void tsbEditar_Click(object sender, EventArgs e)
         {
             if (dgvPelicula.SelectedRows.Count >= 1) // no funciono ocn el .current
+            {
                 UIHelper.CambiarEstado(this, tsbVentanaPelicula, dgvPelicula, true);
+                editar = true;
+            }
+                
 
         }
 
@@ -84,8 +92,19 @@ namespace Pelicula
 
         private void tsbGuardar_Click(object sender, EventArgs e)
         {
+            if (editar)
+                GuardarEditar();
+            else
+                GuardarNuevo();
+
             UIHelper.CambiarEstado(this, tsbVentanaPelicula, dgvPelicula, false);
 
+ 
+
+        }
+
+        private void GuardarEditar()
+        {
             string qry = @"
                 UPDATE Pelicula
                 SET NombrePelicula = @nombre,
@@ -106,7 +125,25 @@ namespace Pelicula
 
             DbHelper.Ejecutar(qry, parametros);
             FilldgvPelicula();
+        }
 
+        private void GuardarNuevo() 
+        {
+            string qry = @"
+                INSERT INTO Pelicula(NombrePelicula, Duracion, IDGenero, IDClasificacion)
+                VALUES (@nombre, @Duracion, @IDGenero, @IDClasificacion);
+                ";
+
+            SqlParameter[] parametros =
+            {
+                new SqlParameter("@nombre", txtNombre.Text.Trim()),
+                new SqlParameter("@Duracion", Convert.ToInt32( txtDuracion.Text.Trim() )),
+                new SqlParameter("@IDGenero", cbGenero.SelectedValue),
+                new SqlParameter("@IDClasificacion", cbClasificacion.SelectedValue),
+            };
+
+            DbHelper.Ejecutar(qry, parametros);
+            FilldgvPelicula();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)

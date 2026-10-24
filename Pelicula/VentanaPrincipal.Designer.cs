@@ -76,12 +76,14 @@
             CARtsmGenero.Name = "CARtsmGenero";
             CARtsmGenero.Size = new Size(180, 22);
             CARtsmGenero.Text = "Generos";
+            CARtsmGenero.Click += CARtsmGenero_Click;
             // 
             // CARtsmClasificacion
             // 
             CARtsmClasificacion.Name = "CARtsmClasificacion";
             CARtsmClasificacion.Size = new Size(180, 22);
             CARtsmClasificacion.Text = "Clasificaciones";
+            CARtsmClasificacion.Click += CARtsmClasificacion_Click;
             // 
             // tsmInfraestructura
             // 
