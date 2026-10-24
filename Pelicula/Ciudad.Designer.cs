@@ -47,8 +47,8 @@
             label5 = new Label();
             label6 = new Label();
             txtBoxClave = new TextBox();
-            txtBoxEstado = new TextBox();
             dgvCiudad = new DataGridView();
+            cmbEstado = new ComboBox();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCiudad).BeginInit();
             SuspendLayout();
@@ -106,6 +106,7 @@
             botEliminar.Name = "botEliminar";
             botEliminar.Size = new Size(87, 24);
             botEliminar.Text = "Eliminar";
+            botEliminar.Click += botEliminar_Click;
             // 
             // botSalir1
             // 
@@ -115,6 +116,7 @@
             botSalir1.Name = "botSalir1";
             botSalir1.Size = new Size(62, 24);
             botSalir1.Text = "Salir";
+            botSalir1.Click += botSalir1_Click;
             // 
             // botObtener
             // 
@@ -123,6 +125,7 @@
             botObtener.Name = "botObtener";
             botObtener.Size = new Size(128, 24);
             botObtener.Text = "Obtener datos";
+            botObtener.Click += botObtener_Click;
             // 
             // label1
             // 
@@ -205,13 +208,6 @@
             txtBoxClave.Size = new Size(125, 27);
             txtBoxClave.TabIndex = 12;
             // 
-            // txtBoxEstado
-            // 
-            txtBoxEstado.Location = new Point(546, 370);
-            txtBoxEstado.Name = "txtBoxEstado";
-            txtBoxEstado.Size = new Size(125, 27);
-            txtBoxEstado.TabIndex = 13;
-            // 
             // dgvCiudad
             // 
             dgvCiudad.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -220,14 +216,23 @@
             dgvCiudad.RowHeadersWidth = 51;
             dgvCiudad.Size = new Size(802, 300);
             dgvCiudad.TabIndex = 14;
+            dgvCiudad.CellContentClick += dgvCiudad_SelectionChanged;
+            // 
+            // cmbEstado
+            // 
+            cmbEstado.FormattingEnabled = true;
+            cmbEstado.Location = new Point(546, 367);
+            cmbEstado.Name = "cmbEstado";
+            cmbEstado.Size = new Size(151, 28);
+            cmbEstado.TabIndex = 15;
             // 
             // Ciudad
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(960, 553);
+            Controls.Add(cmbEstado);
             Controls.Add(dgvCiudad);
-            Controls.Add(txtBoxEstado);
             Controls.Add(txtBoxClave);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -266,8 +271,8 @@
         private Label label5;
         private Label label6;
         private TextBox txtBoxClave;
-        private TextBox txtBoxEstado;
         private DataGridView dgvCiudad;
         private ToolStripButton botObtener;
+        private ComboBox cmbEstado;
     }
 }
