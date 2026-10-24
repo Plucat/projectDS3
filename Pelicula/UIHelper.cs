@@ -112,7 +112,7 @@ namespace Pelicula
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            foreach (DataGridViewColumn col in dgv.Columns)
+            foreach (DataGridViewColumn col in dgv.Columns) // esconde las columnas de id en dgv
             {
                 if (col.Name.StartsWith("ID", StringComparison.OrdinalIgnoreCase) || col.Name.EndsWith("ID", StringComparison.OrdinalIgnoreCase) || col.Name.Equals("ID", StringComparison.OrdinalIgnoreCase))
                 {
