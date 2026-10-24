@@ -7,7 +7,7 @@ namespace Pelicula
 {
     internal static class DbHelper
     {
-        private static readonly string StringConexion = "Server=localhost;Database=Cine;Integrated Security=True;TrustServerCertificate=True;";
+        private static readonly string StringConexion = "Server=localhost\\DS3;Database=Cine;Integrated Security=True;TrustServerCertificate=True;Trusted_Connection=True;";
 
         public static DataTable Consultar(string query, SqlParameter[] parametros = null)
         {
@@ -46,11 +46,13 @@ namespace Pelicula
                 {
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
+                        con.Open();
+
                         if (parametros != null)
                             cmd.Parameters.AddRange(parametros);
 
-                        con.Open();
-                        return cmd.ExecuteNonQuery() > 0;
+                        cmd.ExecuteNonQuery();
+                        return true;
                     }
                 }
             }

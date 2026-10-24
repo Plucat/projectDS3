@@ -6,5 +6,16 @@ namespace Pelicula
         {
             InitializeComponent();
         }
+
+        private void CARtsmPelicula_Click(object sender, EventArgs e)
+        {
+            VentanaPelicula p = new VentanaPelicula();
+            p.ShowDialog();
+        }
+
+        private void tsmSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

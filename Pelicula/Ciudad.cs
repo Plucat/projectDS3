@@ -92,9 +92,10 @@ namespace Pelicula
                 {
                     using (SqlConnection s = new SqlConnection(conexion))
                     {
-                        
+
                     }
-                } catch (Exception ex) {
+                }
+                catch (Exception ex) { }
             }
         }
     }
