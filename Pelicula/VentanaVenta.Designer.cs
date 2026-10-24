@@ -1,0 +1,80 @@
+namespace Pelicula;
+
+partial class VentanaVenta
+{
+    private ComboBox cbCliente = null!;
+    private ComboBox cbFuncion = null!;
+    private ComboBox cbTipoBoleto = null!;
+    private NumericUpDown numPrecio = null!;
+    private Label lblcbCliente = null!;
+    private Label lblcbFuncion = null!;
+    private Label lblcbTipoBoleto = null!;
+    private Label lblnumPrecio = null!;
+    private void InitializeComponent()
+    {
+        SuspendLayout();
+        Editor.SuspendLayout();
+        cbCliente = new ComboBox();
+        lblcbCliente = new Label();
+        lblcbCliente.Text = "Cliente (opcional)";
+        lblcbCliente.AutoSize = true;
+        lblcbCliente.Location = new Point(20, 14);
+        cbCliente.Name = "cbCliente";
+        cbCliente.Location = new Point(20, 39);
+        cbCliente.Size = new Size(300, 27);
+        cbCliente.TabIndex = 0;
+        cbCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+        cbCliente.DropDownWidth = 550;
+        Editor.Controls.Add(lblcbCliente);
+        Editor.Controls.Add(cbCliente);
+        cbFuncion = new ComboBox();
+        lblcbFuncion = new Label();
+        lblcbFuncion.Text = "Función *";
+        lblcbFuncion.AutoSize = true;
+        lblcbFuncion.Location = new Point(360, 14);
+        cbFuncion.Name = "cbFuncion";
+        cbFuncion.Location = new Point(360, 39);
+        cbFuncion.Size = new Size(500, 27);
+        cbFuncion.TabIndex = 1;
+        cbFuncion.DropDownStyle = ComboBoxStyle.DropDownList;
+        cbFuncion.DropDownWidth = 950;
+        Editor.Controls.Add(lblcbFuncion);
+        Editor.Controls.Add(cbFuncion);
+        cbTipoBoleto = new ComboBox();
+        lblcbTipoBoleto = new Label();
+        lblcbTipoBoleto.Text = "Tipo de boleto *";
+        lblcbTipoBoleto.AutoSize = true;
+        lblcbTipoBoleto.Location = new Point(20, 99);
+        cbTipoBoleto.Name = "cbTipoBoleto";
+        cbTipoBoleto.Location = new Point(20, 124);
+        cbTipoBoleto.Size = new Size(300, 27);
+        cbTipoBoleto.TabIndex = 2;
+        cbTipoBoleto.DropDownStyle = ComboBoxStyle.DropDownList;
+        cbTipoBoleto.DropDownWidth = 550;
+        Editor.Controls.Add(lblcbTipoBoleto);
+        Editor.Controls.Add(cbTipoBoleto);
+        numPrecio = new NumericUpDown();
+        lblnumPrecio = new Label();
+        ((System.ComponentModel.ISupportInitialize)numPrecio).BeginInit();
+        lblnumPrecio.Text = "Precio de venta *";
+        lblnumPrecio.AutoSize = true;
+        lblnumPrecio.Location = new Point(360, 99);
+        numPrecio.Name = "numPrecio";
+        numPrecio.Location = new Point(360, 124);
+        numPrecio.Size = new Size(250, 27);
+        numPrecio.TabIndex = 3;
+        numPrecio.DecimalPlaces = 4;
+        numPrecio.Minimum = -922337203685477.5808m;
+        numPrecio.Maximum = 922337203685477.5807m;
+        numPrecio.ThousandsSeparator = true;
+        Editor.Controls.Add(lblnumPrecio);
+        Editor.Controls.Add(numPrecio);
+        ((System.ComponentModel.ISupportInitialize)numPrecio).EndInit();
+        Name = "VentanaVenta";
+        Text = "Ventas";
+        Editor.ResumeLayout(false);
+        Editor.PerformLayout();
+        ResumeLayout(false);
+        PerformLayout();
+    }
+}

@@ -144,7 +144,7 @@ namespace Pelicula
                     using (SqlConnection s = new SqlConnection(conexion))
                     {
                         s.Open();
-                        string nuevo = "INSERT INTO dbo.Ciudad (IDEstado,SiglasCiudad,ClaveCiudad,NombreCiudad) VALUES (@IDEstado, @SiglasCiudad, @ClaveCiudad, @NombreCiudad)";
+                        string nuevo = "INSERT INTO dbo.Ciudad (IDEstado, SiglasCiudad, ClaveCiudad, NombreCiudad) VALUES (@IDEstado, @SiglasCiudad, @ClaveCiudad, @NombreCiudad)";
                         SqlCommand comando = new SqlCommand(nuevo, s);
                         comando.Parameters.AddWithValue("@IDEstado", cmbEstado.SelectedValue ?? DBNull.Value);
                         comando.Parameters.AddWithValue("@SiglasCiudad", txtBoxSiglas.Text);

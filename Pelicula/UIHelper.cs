@@ -85,6 +85,7 @@ namespace Pelicula
 
         public static void LlenarCombo(ComboBox combo, string tabla, string columnaValor, string columnaMostrar)
         {
+            // aqui no hay injection porque nosotros definimos los parametros
             string query = $"SELECT {columnaValor}, {columnaMostrar} FROM {tabla} ORDER BY {columnaMostrar}";
             combo.DataSource = DbHelper.Consultar(query);
 
@@ -93,5 +94,37 @@ namespace Pelicula
             combo.DisplayMember = columnaMostrar;
             combo.SelectedIndex = -1;
         }
+
+
+
+       public static void ConfigurarGrid(DataGridView dgv)
+       {
+
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv.MultiSelect = false;
+
+            dgv.ReadOnly = true;
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+            dgv.AllowUserToResizeRows = false;
+            dgv.AllowUserToResizeColumns = false;
+            dgv.RowHeadersVisible = false;
+
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            foreach (DataGridViewColumn col in dgv.Columns)
+            {
+                if (col.Name.StartsWith("ID", StringComparison.OrdinalIgnoreCase) || col.Name.EndsWith("ID", StringComparison.OrdinalIgnoreCase) || col.Name.Equals("ID", StringComparison.OrdinalIgnoreCase))
+                {
+                    col.Visible = false;
+                }
+            }
+
+
+        }
+
+
+
+
     }
 }
